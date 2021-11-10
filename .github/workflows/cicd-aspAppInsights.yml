@@ -1,4 +1,4 @@
-name: basicAspSite - Build and deploy ASP.Net Core app to Azure Web App
+name: aspAppInsights - Build and deploy ASP.Net Core app to Azure Web App
 
 on:
   push:
