@@ -13,7 +13,7 @@ module appServicePlan 'appServicePlan.bicep' = {
     }
 }
 
-module appInsights 'AppInsights.bicep' = if (useAppInsights) {
+module appInsights 'appInsights.bicep' = if (useAppInsights) {
     name: appInsightsName
     params: {
         appInsightsName: appInsightsName
