@@ -25,8 +25,8 @@ module webApp 'webapp.bicep' = {
   params: {
     webAppName: webSiteName
     useAppInsights: useAppInsights
-    appServicePlanId: useAppInsights ? appServicePlan.outputs.Id : ''
-    appInsightsInstrumentationKey: appInsights.outputs.InstrumentationKey
+    appServicePlanId: appServicePlan.outputs.Id
+    appInsightsInstrumentationKey: useAppInsights ? appInsights.outputs.InstrumentationKey : ''
   }
 }
 
