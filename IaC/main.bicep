@@ -30,4 +30,4 @@ module webApp 'webapp.bicep' = {
   }
 }
 
-output webAppName string = webAppName
+output webAppName string = webSiteName
