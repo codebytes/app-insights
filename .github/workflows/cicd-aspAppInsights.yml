@@ -71,17 +71,6 @@ jobs:
         parameters: webAppName=aspAppInsights useAppInsights=true
         failOnStdErr: false
 
-      # Deploy Bicep file
-    - name: deploy aspAppInsightsLogAnalytics
-      id: deployLA
-      uses: azure/arm-deploy@v1
-      with:
-        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
-        resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./iac/main.bicep
-        parameters: webAppName=aspAppInsightsLogAnalytics useAppInsights=true
-        failOnStdErr: false
-
     - name: Download App
       uses: actions/download-artifact@v2
       with:
@@ -92,12 +81,6 @@ jobs:
       uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ steps.deploy.outputs.webAppName }} # Replace with your app name
-        package: 'app'
-
-    - name: 'Run Azure webapp deploy action for aspAppInsightsLogAnalytics'
-      uses: azure/webapps-deploy@v2
-      with: 
-        app-name: ${{ steps.deployLA.outputs.webAppName }} # Replace with your app name
         package: 'app'
     
     - name: logout
