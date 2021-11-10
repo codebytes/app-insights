@@ -68,7 +68,7 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./iac/main.bicep
-        parameters: appName=basicAspSite
+        parameters: appName=basicAspSite useAppInsights=false
         failOnStdErr: false
    
     - name: Download App
