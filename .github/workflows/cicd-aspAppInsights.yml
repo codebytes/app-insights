@@ -61,7 +61,7 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
       # Deploy Bicep file
-    - name: deploy
+    - name: deploy aspAppInsights
       id: deploy
       uses: azure/arm-deploy@v1
       with:
@@ -77,7 +77,7 @@ jobs:
         name: app  
         path: app
 
-    - name: 'Run Azure webapp deploy action using publish profile credentials'
+    - name: 'Run Azure webapp deploy action for aspAppInsights'
       uses: azure/webapps-deploy@v2
       with: 
         app-name: ${{ steps.deploy.outputs.webAppName }} # Replace with your app name
