@@ -4,12 +4,19 @@ param useAppInsights bool = true
 var appServicePlanName = toLower('AppServicePlan-AppInsights')
 var webSiteName = toLower('wapp-${webAppName}')
 var appInsightsName = toLower('ai-${webAppName}')
-
+var logAnalyticsName = toLower('la-appInsights')
 
 module appServicePlan 'appServicePlan.bicep' = {
     name: appServicePlanName
     params:{
         appServicePlanName: appServicePlanName
+    }
+}
+
+module logAnalytics 'logAnalytics.bicep' = {
+    name: logAnalyticsName
+    params: {
+        workspaceName: logAnalyticsName
     }
 }
 
