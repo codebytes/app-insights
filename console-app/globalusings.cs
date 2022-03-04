@@ -1,4 +1,5 @@
 global using Microsoft.Extensions.Configuration;
+global using Microsoft.Extensions.Configuration.UserSecrets;
 global using Microsoft.ApplicationInsights;
 global using Microsoft.ApplicationInsights.Extensibility;
 global using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;

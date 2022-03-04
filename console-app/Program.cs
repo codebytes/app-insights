@@ -1,6 +1,7 @@
 ﻿IConfigurationRoot configuration = new ConfigurationBuilder()
 .AddJsonFile("appsettings.json")
 .AddEnvironmentVariables()
+.AddUserSecrets<Program>()
 .Build();
 
 // you may use different options to create configuration as shown later in this article
