@@ -1,0 +1,82 @@
+name: nodejs - Build and deploy nodejs to Azure Web App
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+        - '!**'
+        - 'nodejs/**'
+        - 'IaC/**'
+  workflow_dispatch:
+
+env:
+  path: 'nodejs'
+
+jobs:
+  build-nodejs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - run: npm ci
+      working-directory: ${{ env.path }}
+    - run: npm run build --if-present
+      working-directory: ${{ env.path }}
+    - run: npm test
+      working-directory: ${{ env.path }}
+    - name: Upload artifact for deployment job
+      uses: actions/upload-artifact@v2
+      with:
+        name: app
+        path: nodejs/build
+    - uses: actions/upload-artifact@v1
+      with:
+        name: IaC
+        path: IaC        
+  deploy-nodejs:
+    needs: [build-aspAppInsights]
+    runs-on: ubuntu-latest
+    steps:
+     # Checkout code
+    - name: Download IaC
+      uses: actions/download-artifact@v2
+      with:
+        name: IaC
+        path: iac
+
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # Deploy Bicep file
+    - name: deploy nodejs
+      id: deploy
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
+        template: ./iac/main.bicep
+        parameters: webAppName=nodejs useAppInsights=true
+        failOnStdErr: false
+
+    - name: Download App
+      uses: actions/download-artifact@v2
+      with:
+        name: app  
+        path: app
+
+    - name: 'Run Azure webapp deploy action for nodejs'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ steps.deploy.outputs.webAppName }} # Replace with your app name
+        package: 'app'
+    
+    - name: logout
+      run: |
+        az logout
