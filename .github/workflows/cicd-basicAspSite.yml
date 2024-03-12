@@ -63,7 +63,7 @@ jobs:
       # Deploy Bicep file
     - name: deploy basicAspSite
       id: deploy
-      uses: azure/arm-deploy@v1
+      uses: azure/arm-deploy@v2
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
@@ -74,7 +74,7 @@ jobs:
       # Deploy Bicep file
     - name: deploy basicAspSiteAppInsights
       id: deployAppInsights
-      uses: azure/arm-deploy@v1
+      uses: azure/arm-deploy@v2
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
