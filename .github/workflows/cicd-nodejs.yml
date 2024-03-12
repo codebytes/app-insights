@@ -34,7 +34,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: app
-        path: nodejs
+        path: src/nodejs
     - uses: actions/upload-artifact@v1
       with:
         name: IaC
