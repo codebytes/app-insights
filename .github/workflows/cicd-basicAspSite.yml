@@ -43,7 +43,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: app
-        path: webapp
+        path: src/webapp
     - uses: actions/upload-artifact@v1
       with:
         name: IaC
