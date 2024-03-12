@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  path: 'nodejs'
+  path: 'src/nodejs'
 
 permissions:
   id-token: write
