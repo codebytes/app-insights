@@ -9,7 +9,7 @@ var logAnalyticsName = toLower('la-appInsights')
 
 module appServicePlan 'appServicePlan.bicep' = {
     name: appServicePlanName
-    params:{
+    params: {
         appServicePlanName: appServicePlanName
         location: location
     }
@@ -27,19 +27,20 @@ module appInsights 'appInsights.bicep' = if (useAppInsights) {
     name: appInsightsName
     params: {
         appInsightsName: appInsightsName
+        workspaceName: logAnalytics.name
         location: location
     }
 }
 
 module webApp 'webapp.bicep' = {
-  name: webSiteName
-  params: {
-    webAppName: webSiteName
-    useAppInsights: useAppInsights
-    appServicePlanId: appServicePlan.outputs.Id
-    appInsightsInstrumentationKey: useAppInsights ? appInsights.outputs.InstrumentationKey : ''
-    location: location
-}
+    name: webSiteName
+    params: {
+        webAppName: webSiteName
+        useAppInsights: useAppInsights
+        appServicePlanId: appServicePlan.outputs.Id
+        appInsightsInstrumentationKey: useAppInsights ? appInsights.outputs.InstrumentationKey : ''
+        location: location
+    }
 }
 
 output webAppName string = webSiteName
