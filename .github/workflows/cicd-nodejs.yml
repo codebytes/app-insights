@@ -6,8 +6,8 @@ on:
       - main
     paths:
         - '!**'
-        - 'nodejs/**'
-        - 'IaC/**'
+        - 'src/nodejs/**'
+        - 'src/IaC/**'
   workflow_dispatch:
 
 env:

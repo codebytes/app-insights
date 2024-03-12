@@ -6,12 +6,12 @@ on:
       - main
     paths:
         - '!**'
-        - 'aspAppInsights/**'
-        - 'IaC/**'
+        - 'src/aspAppInsights/**'
+        - 'src/IaC/**'
   workflow_dispatch:
 
 env:
-  path: 'aspAppInsights'
+  path: 'src/aspAppInsights'
   project: 'aspAppInsights.csproj'
 
 jobs:
@@ -22,7 +22,7 @@ jobs:
     - name: Set up .NET
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
     - name: Restore dependencies
       run: dotnet restore
       working-directory: ${{ env.path }}
@@ -63,7 +63,7 @@ jobs:
       # Deploy Bicep file
     - name: deploy aspAppInsights
       id: deploy
-      uses: azure/arm-deploy@v1
+      uses: azure/arm-deploy@1
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
