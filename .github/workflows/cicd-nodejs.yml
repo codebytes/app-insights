@@ -6,12 +6,16 @@ on:
       - main
     paths:
         - '!**'
-        - 'nodejs/**'
-        - 'IaC/**'
+        - 'src/nodejs/**'
+        - 'src/IaC/**'
   workflow_dispatch:
 
 env:
   path: 'nodejs'
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   build-nodejs:
@@ -47,14 +51,17 @@ jobs:
         path: iac
 
       # Log into Azure
-    - uses: azure/login@v1
+    - name: Azure login
+      uses: azure/login@v2
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       # Deploy Bicep file
     - name: deploy nodejs
       id: deploy
-      uses: azure/arm-deploy@v1
+      uses: azure/arm-deploy@v2
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}

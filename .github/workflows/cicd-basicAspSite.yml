@@ -6,13 +6,17 @@ on:
       - main
     paths:
         - '!**'
-        - 'basicAspSite/**'
-        - 'IaC/**'
+        - 'src/basicAspSite/**'
+        - 'src/IaC/**'
   workflow_dispatch:
 
 env:
-  path: 'basicAspSite'
+  path: 'src/basicAspSite'
   project: 'basicAspSite.csproj'
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   build-basicAspSite:
@@ -22,7 +26,7 @@ jobs:
     - name: Set up .NET 
       uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: '6.0.x'
+        dotnet-version: '8.0.x'
     - name: Restore dependencies
       run: dotnet restore
       working-directory: ${{ env.path }}
@@ -56,14 +60,17 @@ jobs:
         path: iac
 
       # Log into Azure
-    - uses: azure/login@v1
+    - name: Azure login
+      uses: azure/login@v2
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
       # Deploy Bicep file
     - name: deploy basicAspSite
       id: deploy
-      uses: azure/arm-deploy@v1
+      uses: azure/arm-deploy@v2
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
@@ -74,7 +81,7 @@ jobs:
       # Deploy Bicep file
     - name: deploy basicAspSiteAppInsights
       id: deployAppInsights
-      uses: azure/arm-deploy@v1
+      uses: azure/arm-deploy@v2
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
