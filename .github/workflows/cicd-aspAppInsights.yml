@@ -24,7 +24,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Set up .NET
-      uses: actions/setup-dotnet@v2
+      uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
     - name: Restore dependencies
@@ -40,11 +40,11 @@ jobs:
       run: dotnet publish -c Release ${{ env.project }} -o ../webapp
       working-directory: ${{ env.path }}
     - name: Upload artifact for deployment job
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: app
         path: src/webapp
-    - uses: actions/upload-artifact@v1
+    - uses: actions/upload-artifact@v4
       with:
         name: IaC
         path: IaC        
@@ -54,7 +54,7 @@ jobs:
     steps:
      # Checkout code
     - name: Download IaC
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: IaC
         path: iac
@@ -84,13 +84,13 @@ jobs:
         failOnStdErr: false
 
     - name: Download App
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4
       with:
         name: app  
         path: app
 
     - name: 'Run Azure webapp deploy action for aspAppInsights'
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with: 
         app-name: ${{ steps.deploy.outputs.webAppName }} # Replace with your app name
         package: 'app'
