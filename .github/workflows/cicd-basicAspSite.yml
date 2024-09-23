@@ -100,13 +100,13 @@ jobs:
         path: app
 
     - name: 'Run Azure webapp deploy action for basicAspSite'
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with: 
         app-name: ${{ steps.deploy.outputs.webAppName }} # Replace with your app name
         package: 'app'
     
     - name: 'Run Azure webapp deploy action for basicAspSiteAppInsights'
-      uses: azure/webapps-deploy@v2
+      uses: azure/webapps-deploy@v3
       with: 
         app-name: ${{ steps.deployAppInsights.outputs.webAppName }} # Replace with your app name
         package: 'app'
