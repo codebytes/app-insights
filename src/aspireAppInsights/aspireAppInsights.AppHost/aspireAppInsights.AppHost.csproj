@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsAspireHost>true</IsAspireHost>
+    <UserSecretsId>ea2642c4-a3d1-4dd1-a139-657be7c7b150</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\aspireAppInsights.ApiService\aspireAppInsights.ApiService.csproj" />
+    <ProjectReference Include="..\aspireAppInsights.Web\aspireAppInsights.Web.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.AppHost" Version="8.2.0" />
+    <PackageReference Include="Aspire.Hosting.Azure.ApplicationInsights" Version="8.2.0" />
+  </ItemGroup>
+
+</Project>

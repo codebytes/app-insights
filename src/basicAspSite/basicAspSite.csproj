@@ -1,6 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <RootNamespace>basicAspSite</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>fa55d34e-b4e9-45db-a4ab-8d7888ab520d</UserSecretsId>
   </PropertyGroup>
+
 </Project>
