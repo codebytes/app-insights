@@ -7,7 +7,7 @@ footer: '@Chris_L_Ayers - https://chris-ayers.com'
 <!-- _footer: 'https://github.com/codebytes/app-insights' -->
 
 ![bg right](img/containers.jpg)
-# Monitoring and Troubleshooting with Application Insights and .NET Aspire's Dashboard
+# Enhanced Monitoring and Troubleshooting with Azure Application Insights and .NET Aspire's Open Telemetry Dashboard
 ### ![w:60px](./img/portrait.png) Chris Ayers
 
 ---
