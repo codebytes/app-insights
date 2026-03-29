@@ -6,7 +6,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights" Version="3.0.0" />
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="3.0.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.DependencyCollector" Version="2.23.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.DiagnosticSourceListener" Version="2.23.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.TraceListener" Version="2.23.0" />
