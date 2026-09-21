@@ -1,32 +1,24 @@
-# App Insights Talk
+# Enhanced Monitoring and Troubleshooting with Azure Application Insights and .NET Aspire's Open Telemetry Dashboard
 
-This repository contains resources and demos for the talk "App Insights" by Chris Ayers.
+Explore application monitoring and troubleshooting with Azure Application Insights, OpenTelemetry, and .NET Aspire. This talk includes slides and demos by Chris Ayers.
 
 ## Slides
 
-The slides for the talk can be found at:\
-[https://chris-ayers.com/app-insights](https://chris-ayers.com/app-insights)
-
-## Repository Content
-
-This repository contains demos showcasing various scenarios and slides.
+[View HTML slides](https://chris-ayers.com/app-insights/) | [Download PDF](https://chris-ayers.com/app-insights/Slides.pdf)
 
 ## Resources
 
+- [Slide source](slides/Slides.md)
+- [Application Insights and .NET Aspire demos](src/)
 - [Azure Monitor](https://learn.microsoft.com/en-us/azure/azure-monitor/)
 - [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
 - [Azure Verified Modules](https://azure.github.io/Azure-Verified-Modules/)
 
-## Connect with Chris Ayers
+## Contact
 
-Feel free to connect with Chris Ayers on social media and visit his blog for more information on Bicep and other topics:
+**Chris Ayers**, Principal Software Engineer
 
-- BlueSky: [@chris-ayers.com](https://bsky.app/profile/chris-ayers.com)
-- LinkedIn: [chris-l-ayers](https://linkedin.com/in/chris-l-ayers/)
-- Blog: [https://chris-ayers.com/](https://chris-ayers.com/)
-- GitHub: [Codebytes](https://github.com/codebytes)
-- Twitter: [@Chris_L_Ayers](https://twitter.com/Chris_L_Ayers)
-- Mastodon: [@Chrisayers@hachyderm.io](https://hachyderm.io/@Chrisayers)
+[Blog](https://chris-ayers.com/) | [GitHub](https://github.com/codebytes) | [LinkedIn](https://linkedin.com/in/chris-l-ayers/) | [Bluesky](https://bsky.app/profile/chris-ayers.com) | [Mastodon](https://hachyderm.io/@Chrisayers) | [Twitter](https://twitter.com/Chris_L_Ayers)
 
 ## License
 
