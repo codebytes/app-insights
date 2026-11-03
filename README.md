@@ -6,6 +6,14 @@ Explore application monitoring and troubleshooting with Azure Application Insigh
 
 [View HTML slides](https://chris-ayers.com/app-insights/) | [Download PDF](https://chris-ayers.com/app-insights/Slides.pdf)
 
+## Recordings
+
+- [philly.NET Code Camp 2022](https://www.youtube.com/watch?v=aiURxUCRLZI)
+- [Cloud Lunch and Learn](https://www.youtube.com/watch?v=TV1u6UoBRwk)
+- [The Dev Talk Show — App Monitoring Made Easy with Application Insights](https://www.youtube.com/watch?v=r1qjq71e0us)
+- [Azure Day Rome 2021 (DotNetCode.IT)](https://www.youtube.com/watch?v=U9WjpI3aZcA)
+- [Azure Advent Calendar 2019](https://www.youtube.com/watch?v=W-i6s46uxdM)
+
 ## Resources
 
 - [Slide source](slides/Slides.md)
